@@ -1,5 +1,6 @@
 # SSH Intrusion Detection & Prevention System (IDPS)
 
+
 A Python-based real-time SSH monitoring system that detects brute-force attacks and automatically blocks malicious IPs using iptables.
 
 ## Table of Contents
@@ -38,3 +39,20 @@ The system provides complete visibility into SSH connection lifecycle - from ini
 -  Source port and session tracking
 -  Persistent ban list across system restarts
 -  Detailed forensic logging with timestamps
+
+-  ## Lab Environment
+
+**Components:**
+- **SSH Host (Defender):** Arch Linux with Python 3, iptables, and OpenSSH
+- **Attack Client:** Kali Linux with Hydra brute-force tool
+
+**Network:**
+- Local network setup (192.168.x.x)
+- SSH service running on port 22
+
+**Tools Used:**
+- Python 3 (monitoring script)
+- iptables (firewall management)
+- journalctl (system log monitoring)
+- Hydra (attack simulation)
+
