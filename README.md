@@ -56,7 +56,7 @@ The system provides complete visibility into SSH connection lifecycle - from ini
 - journalctl (system log monitoring)
 - Hydra (attack simulation)
 
-## 🏗️ Lab Environment
+##  Lab Environment
 
 - **SSH Host (Defender):** Arch Linux
 - **Attack Simulation:** Kali Linux with Hydra
@@ -64,7 +64,7 @@ The system provides complete visibility into SSH connection lifecycle - from ini
 
 ---
 
-## 🚀 Prerequisites
+##  Prerequisites
 
 ### Required Software
 - **Python 3.x** - For running the monitoring script
@@ -118,7 +118,7 @@ chmod +x ssh_idps.py
 sudo python3 ssh_idps.py
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 Edit `ssh_idps.py` to customize behavior:
 ```python
