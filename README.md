@@ -56,3 +56,75 @@ The system provides complete visibility into SSH connection lifecycle - from ini
 - journalctl (system log monitoring)
 - Hydra (attack simulation)
 
+## 🏗️ Lab Environment
+
+- **SSH Host (Defender):** Arch Linux
+- **Attack Simulation:** Kali Linux with Hydra
+- **Network:** Local network (192.168.0.117)
+
+---
+
+## 🚀 Prerequisites
+
+### Required Software
+- **Python 3.x** - For running the monitoring script
+- **iptables** - For firewall management
+- **SSH Server** - OpenSSH or equivalent
+- **systemd/journalctl** - For log monitoring (or traditional syslog)
+
+### Required Permissions
+- Root or sudo access for iptables management
+- Access to authentication logs (/var/log/auth.log or journalctl)
+
+### Installation Commands
+
+**On Arch Linux:**
+```bash
+sudo pacman -S python3 iptables openssh
+```
+
+**On Ubuntu/Debian:**
+```bash
+sudo apt update
+sudo apt install python3 iptables openssh-server
+```
+
+**On CentOS/RHEL:**
+```bash
+sudo yum install python3 iptables openssh-server
+```
+
+### Verify SSH Service
+```bash
+# Start SSH service
+sudo systemctl start sshd
+
+# Enable on boot
+sudo systemctl enable sshd
+
+# Check status
+sudo systemctl status sshd
+```
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/suyash-R-K/ssh-idps.git
+cd ssh-idps
+
+# Make script executable
+chmod +x ssh_idps.py
+
+# Run the IDPS (requires root privileges)
+sudo python3 ssh_idps.py
+```
+
+## ⚙️ Configuration
+
+Edit `ssh_idps.py` to customize behavior:
+```python
+MAX_ATTEMPTS = 5        # Number of failed attempts before ban
+TIME_WINDOW = 300       # Time window in seconds (5 minutes)
+LIVE_LOG = "idps_live_log.txt"      # Live event log file
+BANNED_LOG = "banned_ips.txt"       # Banned IPs registry
+CHECK_INTERVAL = 2      # Log check interval in seconds
+```
